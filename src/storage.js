@@ -176,6 +176,7 @@ HttpStorage = exports.HttpStorage = function HttpStorage(options) {
  * :rtype: Promise
  */
 HttpStorage.prototype.create = function (annotation) {
+    annotation.uri = window.location.pathname;
     return this._apiRequest('create', annotation);
 };
 
