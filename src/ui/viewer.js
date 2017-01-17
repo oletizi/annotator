@@ -83,11 +83,16 @@ var Viewer = exports.Viewer = Widget.extend({
         this.hideTimerActivity = null;
         this.mouseDown = false;
         this.render = function (annotation) {
+            var out = '';
             if (annotation.text) {
-                return util.escapeHtml(annotation.text);
+                out += util.escapeHtml(annotation.text);
             } else {
-                return "<i>" + _t('No comment') + "</i>";
+                out += "<i>" + _t('No comment') + "</i>";
             }
+            if (annotation.user) {
+                out += '<p class="annotator-user">' + util.escapeHtml(annotation.user) + '</p>';
+            }
+            return out;
         };
 
         var self = this;
