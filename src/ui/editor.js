@@ -509,10 +509,11 @@ var Editor = exports.Editor = Widget.extend({
         if (event.which === 27) {
             // "Escape" key => abort.
             this.cancel();
-        } else if (event.which === 13 && !event.shiftKey) {
-            // If "return" was pressed without the shift key, we're done.
-            this.submit();
         }
+        // else if (event.which === 13 && !event.shiftKey) {
+        //     // If "return" was pressed without the shift key, we're done.
+        //     this.submit();
+        // }
     },
 
     // Sets up mouse events for resizing and dragging the editor window.

@@ -9,6 +9,8 @@ var $ = util.$,
 
 var NS = 'annotator-viewer';
 
+//var linkify = require('linkifyjs');
+var linkifyHtml = require('linkifyjs/html');
 
 // Private: simple parser for hypermedia link structure
 //
@@ -85,7 +87,10 @@ var Viewer = exports.Viewer = Widget.extend({
         this.render = function (annotation) {
             var out = '';
             if (annotation.text) {
-                out += util.escapeHtml(annotation.text);
+                out += linkifyHtml(util.escapeHtml(annotation.text).replace(/(?:\r\n|\r|\n)/g, '<br />'), {
+                    defaultProtocol: 'https'
+                });
+
             } else {
                 out += "<i>" + _t('No comment') + "</i>";
             }

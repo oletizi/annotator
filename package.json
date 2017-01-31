@@ -13,7 +13,8 @@
     "es6-promise": "^3.0.2",
     "insert-css": "^0.2.0",
     "jquery": "^1.11.3",
-    "xpath-range": "0.0.5"
+    "xpath-range": "0.0.5",
+    "linkifyjs": "^2.1.4"
   },
   "devDependencies": {
     "//": {
