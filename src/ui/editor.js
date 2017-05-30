@@ -78,7 +78,9 @@ var dragTracker = exports.dragTracker = function dragTracker(handle, callback) {
 
         // Throttle repeated mousemove events
         throttled = true;
-        setTimeout(function () { throttled = false; }, 1000 / 60);
+        setTimeout(function () {
+            throttled = false;
+        }, 1000 / 60);
     }
 
     // Event handler for mouseup
@@ -408,8 +410,10 @@ var Editor = exports.Editor = Widget.extend({
             id: 'annotator-field-' + id(),
             type: 'input',
             label: '',
-            load: function () {},
-            submit: function () {}
+            load: function () {
+            },
+            submit: function () {
+            }
         }, options);
 
         var input = null,
@@ -420,7 +424,7 @@ var Editor = exports.Editor = Widget.extend({
         if (field.type === 'textarea') {
             input = $('<textarea />');
         } else if (field.type === 'checkbox') {
-            input = $('<input type="checkbox" />');
+            input = $('<input type="checkbox" ' + (options.checked ? 'checked="checked"' : '') + '/>');
         } else if (field.type === 'input') {
             input = $('<input />');
         } else if (field.type === 'select') {
@@ -433,7 +437,6 @@ var Editor = exports.Editor = Widget.extend({
             id: field.id,
             placeholder: field.label
         });
-
         if (field.type === 'checkbox') {
             element.addClass('annotator-checkbox');
             element.append($('<label />', {
@@ -592,7 +595,9 @@ exports.standalone = function standalone(options) {
     var widget = new exports.Editor(options);
 
     return {
-        destroy: function () { widget.destroy(); },
+        destroy: function () {
+            widget.destroy();
+        },
         beforeAnnotationCreated: function (annotation) {
             return widget.load(annotation);
         },

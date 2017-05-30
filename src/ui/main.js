@@ -127,7 +127,7 @@ function addPermissionsCheckboxes(editor, ident, authz) {
             if (authz.permits(action, annotation, null)) {
                 input.attr('checked', 'checked');
             } else {
-                input.removeAttr('checked');
+                //input.removeAttr('checked');
             }
         };
     }
@@ -161,6 +161,7 @@ function addPermissionsCheckboxes(editor, ident, authz) {
     editor.addField({
         type: 'checkbox',
         label: _t('Allow anyone to <strong>view</strong> this annotation'),
+        checked: true,
         load: createLoadCallback('read'),
         submit: createSubmitCallback('read')
     });
@@ -168,6 +169,7 @@ function addPermissionsCheckboxes(editor, ident, authz) {
     editor.addField({
         type: 'checkbox',
         label: _t('Allow anyone to <strong>edit</strong> this annotation'),
+        checked: true,
         load: createLoadCallback('update'),
         submit: createSubmitCallback('update')
     });

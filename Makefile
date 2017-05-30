@@ -8,8 +8,11 @@ endif
 
 SRC := $(shell find src -type f -name '*.js')
 
-all: annotator
+all: annotator install
 annotator: pkg/annotator.min.js
+
+install:
+	cp pkg/annotator.* /Users/orion/work/avi-docs/src/site/js/
 
 pkg/%.min.js: pkg/%.js
 	@echo Writing $@
