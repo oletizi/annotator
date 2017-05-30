@@ -1,3 +1,4 @@
+var sinon = require('sinon');
 var assert = require('assertive-chai').assert;
 
 var Promise = require('es6-promise').Promise;

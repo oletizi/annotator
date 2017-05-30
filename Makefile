@@ -8,7 +8,7 @@ endif
 
 SRC := $(shell find src -type f -name '*.js')
 
-all: annotator install
+all: clean annotator
 annotator: pkg/annotator.min.js
 
 install:
